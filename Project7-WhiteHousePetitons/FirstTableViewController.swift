@@ -35,12 +35,13 @@ class FirstTableViewController: UITableViewController {
         if let url = URL(string: urlStr) {
             if let data = try? Data(contentsOf: url) {
                 parsing(json: data)
+                searches = petitions
                 return
             }
         }
         
         showError()
-        searches = petitions
+        
     }
     
     @objc func search() {
@@ -135,7 +136,7 @@ class FirstTableViewController: UITableViewController {
 //            return cell
 //        } else {
         
-            let petition = searches[indexPath.row]
+            let petition = petitions[indexPath.row]
             cell.textLabel?.text = petition.title
             cell.detailTextLabel?.text = petition.body
             return cell
