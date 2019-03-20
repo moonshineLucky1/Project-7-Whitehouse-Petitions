@@ -68,13 +68,10 @@ class FirstTableViewController: UITableViewController {
             if !(lowerInput.isEmpty) {
                 if search.title.contains(lowerInput) || search.body.contains(lowerInput) {
                     
-                    searches.removeAll(keepingCapacity: true)
-                    
                     searches.insert(search, at: 0)
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                     tableView.reloadData()
-                    
                     
                 } else {
                     errorMessage(title: "no results.", message: "Can't find the petiton with keyword.")
